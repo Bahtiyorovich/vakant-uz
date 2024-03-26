@@ -1,14 +1,14 @@
-import { Client, Footer, Main, Navbar, Products } from "./components"
+import { Main, Navbar, Sidebar, } from "./components"
 
 const App = () => {
   return (
-    <>
-      <Navbar/>
-      <Main/>
-      <Client/>
-      <Products/>
-      <Footer/>
-    </>
+    <div className="flex w-full h-screen bg-slate-800">
+        <Sidebar/>
+      <div className="h-screen w-[82%]">
+        <Navbar/>
+        <div className="main"></div>
+      </div>
+    </div>
   )
 }
 
