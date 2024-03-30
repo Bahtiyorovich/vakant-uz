@@ -1,55 +1,51 @@
 import { RiMenuFoldFill } from "react-icons/ri";
 import { RiMenuUnfoldFill } from "react-icons/ri";
 import { IoIosSearch } from "react-icons/io";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { User } from "../../assets";
 import { IoSunnyOutline } from "react-icons/io5";
 import { BsMoonStars } from "react-icons/bs";
 import { LuBellRing } from "react-icons/lu";
+import { ThemeContext } from "../../helpers/dark-mode";
 
-const Navbar = () => {
-
-  const [menu, setMenu] = useState(false);
+const Navbar = ({menuActive, handleMenuActive}) => {
   const [search, setSearch] = useState(false);
-  const [dark, setDark] = useState(false);
   const [userAccount, setUserAccount] = useState(true);
+
+  const { toggleDarkMode, darkMode } = useContext(ThemeContext)
 
   const handleSearchInput = () => {
     setSearch(prevSearch => !prevSearch);
   }
 
   return (
-    <div className="flex items-center justify-between w-full h-[70px] border-b border-slate-700">
-      <div className="flex items-center justify-start gap-4 w-[450px] h-full px-4">
-        <div className="text-2xl text-white">
-          {
-            menu 
-            ? <RiMenuUnfoldFill />
-            : <RiMenuFoldFill />
-          }
-        </div>
-        <div className="flex items-center gap-2 w-4/5">
-          <div className="text-2xl text-white cursor-pointer" onClick={handleSearchInput}>
-            <IoIosSearch />
+      <div className={darkMode  ? "text-slate-600 flex items-center justify-between w-full h-[70px] border-b border-slate-100" : "flex items-center justify-between w-full h-[70px] border-b border-slate-600 text-white"}>
+        <div className="flex items-center justify-start gap-4 w-[450px] h-full px-4">
+          <div className="text-2xl cursor-pointer" onClick={handleMenuActive}>
+            { menuActive ? <RiMenuUnfoldFill /> : <RiMenuFoldFill /> }
           </div>
-          <input type="text" className={search ? "bg-slate-100 border-none outline-none rounded text-xl w-full h-[40px] px-4 py-2" : 'hidden'}/>
+          <div className="flex items-center gap-2 w-4/5">
+            <div className="text-2xl cursor-pointer" onClick={handleSearchInput}>
+              <IoIosSearch />
+            </div>
+            <input type="text" className={search ? "bg-slate-100 border-none outline-none rounded text-xl w-full h-[40px] px-4 py-2" : 'hidden'}/>
+          </div>
+        </div>
+        <div className="flex items-center justify-between gap-4 w-[130px] h-full px-2">
+          <div className="text-xl" onClick={toggleDarkMode}>
+            {darkMode? <IoSunnyOutline/> : <BsMoonStars /> }
+          </div>
+          <div className="text-xl">
+            <LuBellRing />
+          </div>
+          <div className="rounded-full w-10 h-10 bg-sky-400 flex items-center justify-center">
+            {userAccount 
+              ? <img src={User} alt="" className="rounded-full object-cover w-full h-full"/>
+              : <h2 className="font-semibold text-xl">UN</h2> 
+            }
+          </div>
         </div>
       </div>
-      <div className="flex items-center justify-between gap-4 w-[130px] h-full px-2">
-        <div className="dark-light text-xl text-white">
-          { dark ? <BsMoonStars /> : <IoSunnyOutline /> }
-        </div>
-        <div className="bell text-xl text-white">
-          <LuBellRing />
-        </div>
-        <div className="rounded-full w-10 h-10 bg-sky-400 flex items-center justify-center">
-          {userAccount 
-            ? <img src={User} alt="" className="rounded-full object-cover w-full h-full"/>
-            : <h2 className="font-semibold text-xl text-white">UN</h2> 
-          }
-        </div>
-      </div>
-    </div>
   )
 }
 
