@@ -5,15 +5,18 @@ import { RiListSettingsLine } from "react-icons/ri";
 const menuItems = [
   {
     icon: IoHomeOutline,
-    title: "Home"
+    title: "All Vakants",
+    link: "/"
   },
   {
     icon: TbCategory,
-    title: "Categories"
+    title: "Categories",
+    link: "categories"
   },
   {
     icon: RiListSettingsLine,
-    title: "Settings"
+    title: "Settings",
+    link: "settings"
   }
 ]
 

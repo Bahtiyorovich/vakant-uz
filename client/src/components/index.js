@@ -1,8 +1,9 @@
-export {default as Navbar} from './navbar/Navbar';
-export {default as Main} from './home/Main';
-export {default as Products} from './products/Products';
-export {default as Client} from './client-page/Client';
-export {default as Footer} from './footer/Footer';
-export {default as Sidebar} from './sidebar/Sidebar';
-
+export {default as Navbar} from './layout/navbar/Navbar';
+export {default as Main} from './layout/Main';
+export {default as Footer} from './layout/footer/Footer';
+export {default as Sidebar} from './layout/sidebar/Sidebar';
+export {default as Layout} from './layout/layout';
+export {default as AllVakants} from './pages/all-vakants';
+export {default as Categories} from './pages/categories';
+export {default as Settings} from './pages/settings';
 

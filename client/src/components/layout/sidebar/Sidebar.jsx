@@ -1,10 +1,11 @@
-import { Logo, User } from "../../assets";
+import { Logo, User } from "../../../assets";
 import { IoPower } from "react-icons/io5";
 import { useState } from "react";
-import menuItems from "./../../constants/data";
+import menuItems from "../../../constants/data";
 
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
+import { Link } from "react-router-dom";
 // ..
 AOS.init();
 
@@ -45,19 +46,21 @@ const Sidebar = ({ menuActive, darkMode }) => {
           }
         >
           {menuItems.map((item) => (
-            <div
-              key={item.title}
-              className={
-                darkMode
-                  ? "flex items-center gap-4 text-2xl text-slate-600 hover:bg-slate-100 cursor-pointer p-2"
-                  : "flex items-center gap-4 text-2xl text-slate-400 hover:bg-slate-700 cursor-pointer p-2"
-              }
-            >
-              {<item.icon />}
-              <p className={menuActive ? "hidden" : "text-[16px]"}>
-                {item.title}
-              </p>
-            </div>
+            <Link to={item.link}>
+              <div
+                key={item.title}
+                className={
+                  darkMode
+                    ? "flex items-center gap-4 text-2xl text-slate-600 hover:bg-slate-100 cursor-pointer p-2"
+                    : "flex items-center gap-4 text-2xl text-slate-400 hover:bg-slate-700 cursor-pointer p-2"
+                }
+              >
+                {<item.icon />}
+                <p className={menuActive ? "hidden" : "text-[16px]"}>
+                  {item.title}
+                </p>
+              </div>
+            </Link>
           ))}
         </div>
 
