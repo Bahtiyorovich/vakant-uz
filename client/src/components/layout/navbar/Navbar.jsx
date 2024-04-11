@@ -10,7 +10,7 @@ import { ThemeContext } from "../../../helpers/dark-mode";
 
 const Navbar = ({menuActive, handleMenuActive}) => {
   const [search, setSearch] = useState(false);
-  const [userAccount, setUserAccount] = useState(true);
+  const userAccount = true;
 
   const { toggleDarkMode, darkMode } = useContext(ThemeContext)
 
@@ -19,7 +19,9 @@ const Navbar = ({menuActive, handleMenuActive}) => {
   }
 
   return (
-      <div className={darkMode  ? "text-slate-600 flex items-center justify-between w-full h-[70px] border-b border-slate-100" : "flex items-center justify-between w-full h-[70px] border-b border-slate-600 text-white"}>
+      <div className={darkMode  
+        ? "text-slate-600 flex items-center justify-between w-full h-[70px] border-b border-gray-200" 
+        : "flex items-center justify-between w-full h-[70px] border-b border-gray-600 text-white"}>
         <div className="flex items-center justify-start gap-4 w-[450px] h-full px-4">
           <div className="text-2xl cursor-pointer" onClick={handleMenuActive}>
             { menuActive ? <RiMenuUnfoldFill /> : <RiMenuFoldFill /> }
@@ -28,7 +30,7 @@ const Navbar = ({menuActive, handleMenuActive}) => {
             <div className="text-2xl cursor-pointer" onClick={handleSearchInput}>
               <IoIosSearch />
             </div>
-            <input type="text" className={search ? "bg-slate-100 border-none outline-none rounded text-xl w-full h-[40px] px-4 py-2" : 'hidden'}/>
+            <input type="text" placeholder="search..." className={search ? "bg-cyan-50 border-none outline-none rounded text-xl w-full h-[40px] px-4 py-2 text-gray-700" : 'hidden'}/>
           </div>
         </div>
         <div className="flex items-center justify-between gap-4 w-[130px] h-full px-2">

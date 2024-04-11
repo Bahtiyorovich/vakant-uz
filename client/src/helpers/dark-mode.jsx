@@ -4,7 +4,7 @@ import React, { useEffect, useState, createContext, useContext } from 'react';
 export const ThemeContext = createContext();
 
 // Provider komponenti
-export const ThemeProvider = ({ children }) => {
+export const DarkProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(() => {
     // localStorage dan darkMode-ni olish
     const savedMode = JSON.parse(localStorage.getItem('darkMode'));

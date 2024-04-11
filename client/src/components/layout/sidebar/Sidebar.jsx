@@ -10,15 +10,15 @@ import { Link } from "react-router-dom";
 AOS.init();
 
 const Sidebar = ({ menuActive, darkMode }) => {
-  const [userAccount, setUserAccount] = useState(true);
+  const userAccount = true;
 
   return (
     <div className={menuActive ? "w-16 duration-300" : "w-[270px] duration-300"}>
       <div
         className={
           darkMode
-            ? "h-screen border-r border-slate-100"
-            : "h-screen border-r border-slate-600"
+            ? "h-screen border-r border-gray-200"
+            : "h-screen border-r border-gray-600"
         }
       >
         {menuActive ? (
@@ -46,13 +46,12 @@ const Sidebar = ({ menuActive, darkMode }) => {
           }
         >
           {menuItems.map((item) => (
-            <Link to={item.link}>
+            <Link to={item.link} key={item.title}>
               <div
-                key={item.title}
                 className={
                   darkMode
-                    ? "flex items-center gap-4 text-2xl text-slate-600 hover:bg-slate-100 cursor-pointer p-2"
-                    : "flex items-center gap-4 text-2xl text-slate-400 hover:bg-slate-700 cursor-pointer p-2"
+                    ? "flex items-center gap-4 text-2xl text-gray-700 hover:bg-blue-gray-100 cursor-pointer p-2"
+                    : "flex items-center gap-4 text-2xl text-gray-300 hover:bg-blue-gray-700 cursor-pointer p-2"
                 }
               >
                 {<item.icon />}
@@ -65,14 +64,14 @@ const Sidebar = ({ menuActive, darkMode }) => {
         </div>
 
         {menuActive ? (
-          <div className="flex items-center justify-around ml-[3px] bg-sky-900 rounded h-[60px] w-14">
+          <div className="flex items-center justify-around bg-cyan-800 rounded h-[60px] w-14">
             <p className="text-2xl text-sky-400 cursor-pointer hover:text-sky-200">
               <IoPower />
             </p>
           </div>
         ) : (
-          <div className="flex items-center justify-around ml-[20px] bg-sky-900 rounded h-[60px] w-[220px]">
-            <div className="rounded-full w-10 h-10 bg-sky-400 flex items-center justify-center">
+          <div className="flex items-center justify-around ml-[20px] bg-cyan-500 rounded h-[60px] w-[220px]">
+            <div className="rounded-full w-10 h-10 bg-cyan-400 flex items-center justify-center">
               {userAccount ? (
                 <img
                   src={User}
@@ -85,11 +84,11 @@ const Sidebar = ({ menuActive, darkMode }) => {
             </div>
             <div className="leading-5">
               <h4 className="text-white">Username</h4>
-              <p className="text-slate-100 text-[14px] cursor-pointer hover:underline">
+              <p className="text-gray-100 text-[14px] cursor-pointer hover:underline">
                 @user_2025
               </p>
             </div>
-            <p className="text-2xl text-sky-400 cursor-pointer hover:text-sky-200">
+            <p className="text-2xl text-cyan-800 cursor-pointer hover:text-white">
               <IoPower />
             </p>
           </div>
