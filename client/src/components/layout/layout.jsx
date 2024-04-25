@@ -13,7 +13,7 @@ const Layout = () => {
   }
 
   return (
-    <div className={darkMode ? "flex w-full h-screen bg-white ": "flex w-full h-screen bg-blue-gray-900"}>
+    <div className={darkMode ? "flex w-full h-screen bg-white": "flex w-full h-screen bg-slate-900"}>
         <Sidebar menuActive={menuActive} darkMode={darkMode}/>
       <div className="h-screen w-full">
         <Navbar menuActive={menuActive} handleMenuActive={handleMenuActive}/>

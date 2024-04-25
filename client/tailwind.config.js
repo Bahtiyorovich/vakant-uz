@@ -12,7 +12,16 @@ module.exports = withMT ({
       colors: {
         cyan: {
           500: "#00bcd4"
+        },
+        slate: {
+          900: "#0f172a",
+        },
+        sky: {
+          500: "#0ea5e9"
         }
+      },
+      height: {
+        'a': "auto"
       }
     },
   },

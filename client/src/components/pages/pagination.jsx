@@ -24,18 +24,20 @@ export function SimplePagination() {
         variant="outlined"
         onClick={prev}
         disabled={active === 1}
+        color="white"
       >
         <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" />
       </IconButton>
-      <Typography color="gray" className="font-normal">
-        Page <strong className="text-gray-900">{active}</strong> of{" "}
-        <strong className="text-gray-900">10</strong>
+      <Typography color="" className="font-normal text-gray-400">
+        Page <strong className="text-gray-400">{active}</strong> of{" "}
+        <strong className="text-gray-400">10</strong>
       </Typography>
       <IconButton
         size="sm"
         variant="outlined"
         onClick={next}
         disabled={active === 10}
+        color="white"
       >
         <ArrowRightIcon strokeWidth={2} className="h-4 w-4" />
       </IconButton>

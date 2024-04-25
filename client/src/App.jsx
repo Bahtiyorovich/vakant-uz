@@ -1,10 +1,14 @@
+import Login from "./components/auth/Login";
 import Layout from "./components/layout/layout"
 
 const App = () => {
 
+  const user = false;
+
   return (
     <div>
-      <Layout/>
+      {user 
+      ? <Layout/> : <Login/>}
     </div>
   )
  

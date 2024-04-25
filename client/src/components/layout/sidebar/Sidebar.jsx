@@ -18,7 +18,7 @@ const Sidebar = ({ menuActive, darkMode }) => {
         className={
           darkMode
             ? "h-screen border-r border-gray-200"
-            : "h-screen border-r border-gray-600"
+            : "h-screen border-r border-gray-800"
         }
       >
         {menuActive ? (
