@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createContext, useContext } from 'react';
+import React, { useEffect, useState, createContext, useContext, useCallback } from 'react';
 import { vakantInfo } from '../constants/data';
 
 // Context yaratish
@@ -17,11 +17,16 @@ export const MyProvider = ({ children }) => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
   }, [darkMode]);
 
-  const toggleDarkMode = () => {
+  const toggleDarkMode = useCallback(() => {
     setDarkMode(prevMode => !prevMode);
-  };
+  }, [darkMode]);
 
   const [searchStr, setSearchStr] = useState("");
+
+  const handleSearch = useCallback((e) => {
+    setSearchStr(e.target.value);
+  }, [searchStr])
+  
   const filteredData = vakantInfo.filter((item) =>
   Object.values(item).some(
     (value) =>
@@ -30,9 +35,6 @@ export const MyProvider = ({ children }) => {
   )
 );
 
-  const handleSearch = (e) => {
-    setSearchStr(e.target.value);
-  }
 
 
   return (

@@ -1,22 +1,22 @@
 import { RiMenuFoldFill } from "react-icons/ri";
 import { RiMenuUnfoldFill } from "react-icons/ri";
 import { IoIosSearch } from "react-icons/io";
-import { useContext, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import { User } from "../../../assets";
 import { IoSunnyOutline } from "react-icons/io5";
 import { BsMoonStars } from "react-icons/bs";
 import { LuBellRing } from "react-icons/lu";
-import { ThemeContext } from "../../../helpers/dark-mode";
+import { useTheme } from "../../../helpers/dark-mode";
 
 const Navbar = ({ menuActive, handleMenuActive }) => {
   const [search, setSearch] = useState(false);
   const userAccount = true;
 
-  const { toggleDarkMode, darkMode, handleSearch } = useContext(ThemeContext);
+  const { toggleDarkMode, darkMode, handleSearch, searchStr } = useTheme();
 
-  const handleSearchInput = () => {
+  const handleSearchInput = useCallback(() => {
     setSearch((prevSearch) => !prevSearch);
-  };
+  }, [search]);
 
   return (
     <div
@@ -37,6 +37,7 @@ const Navbar = ({ menuActive, handleMenuActive }) => {
           <input
             type="text"
             placeholder="search..."
+            value={searchStr}
             onChange={handleSearch}
             className={
               search

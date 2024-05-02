@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { FaTelegram } from "react-icons/fa";
 import { BsFillTelephoneInboundFill } from "react-icons/bs";
@@ -7,14 +7,14 @@ import { IoTimeOutline } from "react-icons/io5";
 import { FaPersonWalkingLuggage } from "react-icons/fa6";
 import { useTheme } from "../../helpers/dark-mode";
 
-const Vakant = ({ item, searchStr }) => {
+const Vakant = ({ item }) => {
   const [more, setMore] = useState(false);
 
-  const { darkMode} = useTheme();
+  const { darkMode } = useTheme();
 
-  const handleMoreDescription = () => {
+  const handleMoreDescription = useCallback(() => {
     setMore(more => !more);
-  }
+  }, [more])
 
   return (
       <div className={darkMode ? "bg-white shadow-lg rounded-lg h-a p-4" : "bg-slate-900 shadow-lg rounded-lg h-a text-white p-4 border-[1px] border-gray-700"}>

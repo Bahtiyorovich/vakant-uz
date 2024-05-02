@@ -3,7 +3,7 @@ import Layout from "./components/layout/layout"
 
 const App = () => {
 
-  const user = false;
+  const user = true;
 
   return (
     <div>
